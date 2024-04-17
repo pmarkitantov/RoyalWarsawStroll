@@ -5,18 +5,18 @@
 //  Created by Pavel Markitantov on 17/04/2024.
 //
 
+import CoreLocation
 import Foundation
 import SwiftUI
-import CoreLocation
 
-struct LandMark: Hashable, Codable, Identifiable {
+struct Landmark: Hashable, Codable, Identifiable {
     var id: UUID
     var name: String
     var type: String
     var description: String
     var constructionDate: String?
     var keyFeatures: String?
-    var isFavourite: Bool
+    var isFavorite: Bool
     
     var additionalImages: [String]?
     
@@ -36,5 +36,18 @@ struct LandMark: Hashable, Codable, Identifiable {
     struct Coordinates: Hashable, Codable {
         var latitude: Double
         var longitude: Double
+    }
+    
+    init(id: UUID = UUID(), name: String, type: String, description: String, constructionDate: String?, keyFeatures: String?, isFavorite: Bool, additionalImages: [String]?, imageName: String, coordinates: Coordinates) {
+        self.id = id
+        self.name = name
+        self.type = type
+        self.description = description
+        self.constructionDate = constructionDate
+        self.keyFeatures = keyFeatures
+        self.isFavorite = isFavorite
+        self.additionalImages = additionalImages
+        self.imageName = imageName
+        self.coordinates = coordinates
     }
 }
