@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct RoyalWarsawStrollApp: App {
+    
+    @StateObject private var vm = LandmarkViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MapView()
+                .environmentObject(vm)
         }
     }
 }

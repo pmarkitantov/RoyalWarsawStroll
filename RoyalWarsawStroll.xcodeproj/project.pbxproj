@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AC49F2B42BDD254F0065B09C /* RoyalWarsawStrollApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2B32BDD254F0065B09C /* RoyalWarsawStrollApp.swift */; };
-		AC49F2B62BDD254F0065B09C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2B52BDD254F0065B09C /* ContentView.swift */; };
 		AC49F2B82BDD254F0065B09C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC49F2B72BDD254F0065B09C /* Assets.xcassets */; };
 		AC49F2BB2BDD254F0065B09C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC49F2BA2BDD254F0065B09C /* Preview Assets.xcassets */; };
 		AC49F2CB2BDD254F0065B09C /* LandmarkList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2CA2BDD254F0065B09C /* LandmarkList.swift */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		AC49F2B02BDD254F0065B09C /* RoyalWarsawStroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoyalWarsawStroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC49F2B32BDD254F0065B09C /* RoyalWarsawStrollApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoyalWarsawStrollApp.swift; sourceTree = "<group>"; };
-		AC49F2B52BDD254F0065B09C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC49F2B72BDD254F0065B09C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC49F2BA2BDD254F0065B09C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AC49F2CA2BDD254F0065B09C /* LandmarkList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkList.swift; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				AC49F2DA2BDD254F0065B09C /* Components */,
 				AC49F2C42BDD254F0065B09C /* Views */,
 				AC49F2B32BDD254F0065B09C /* RoyalWarsawStrollApp.swift */,
-				AC49F2B52BDD254F0065B09C /* ContentView.swift */,
 				AC49F2B72BDD254F0065B09C /* Assets.xcassets */,
 				AC49F2B92BDD254F0065B09C /* Preview Content */,
 			);
@@ -204,7 +201,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC49F2B62BDD254F0065B09C /* ContentView.swift in Sources */,
 				AC49F2DC2BDD254F0065B09C /* CircleImage.swift in Sources */,
 				AC49F2D22BDD254F0065B09C /* MockData.swift in Sources */,
 				AC49F2DE2BDD254F0065B09C /* FavoriteButton.swift in Sources */,
