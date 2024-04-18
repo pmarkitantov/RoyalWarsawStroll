@@ -11,9 +11,12 @@ struct LandmarkRow: View {
     var landmark: Landmark
     var body: some View {
         HStack {
-            landmark.mainImage
+            Image(landmark.images.first ?? "mockImage")
                 .resizable()
                 .frame(width: 50, height: 50)
+                .scaledToFill()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+            
             Text(landmark.name)
 
             Spacer()

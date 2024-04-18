@@ -19,6 +19,7 @@
 		AC49F2DC2BDD254F0065B09C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2DB2BDD254F0065B09C /* CircleImage.swift */; };
 		AC49F2DE2BDD254F0065B09C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2DD2BDD254F0065B09C /* FavoriteButton.swift */; };
 		AC49F2E02BDD254F0065B09C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2DF2BDD254F0065B09C /* MapView.swift */; };
+		AC69D0192BF25D38006F68C2 /* LandmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		AC49F2DB2BDD254F0065B09C /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		AC49F2DD2BDD254F0065B09C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		AC49F2DF2BDD254F0065B09C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +69,8 @@
 		AC49F2B22BDD254F0065B09C /* RoyalWarsawStroll */ = {
 			isa = PBXGroup;
 			children = (
+				AC69D0172BF25D38006F68C2 /* ViewModels */,
 				AC49F2D02BDD254F0065B09C /* MockData */,
-				AC49F2C32BDD254F0065B09C /* ViewControllers */,
 				AC49F2C22BDD254F0065B09C /* Models */,
 				AC49F2DA2BDD254F0065B09C /* Components */,
 				AC49F2C42BDD254F0065B09C /* Views */,
@@ -94,13 +96,6 @@
 				AC49F2CC2BDD254F0065B09C /* Landmark.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		AC49F2C32BDD254F0065B09C /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		AC49F2C42BDD254F0065B09C /* Views */ = {
@@ -129,6 +124,14 @@
 				AC49F2DD2BDD254F0065B09C /* FavoriteButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		AC69D0172BF25D38006F68C2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +209,7 @@
 				AC49F2D22BDD254F0065B09C /* MockData.swift in Sources */,
 				AC49F2DE2BDD254F0065B09C /* FavoriteButton.swift in Sources */,
 				AC49F2B42BDD254F0065B09C /* RoyalWarsawStrollApp.swift in Sources */,
+				AC69D0192BF25D38006F68C2 /* LandmarkViewModel.swift in Sources */,
 				AC49F2CB2BDD254F0065B09C /* LandmarkList.swift in Sources */,
 				AC49F2CF2BDD254F0065B09C /* LandmarkRow.swift in Sources */,
 				AC49F2E02BDD254F0065B09C /* MapView.swift in Sources */,
