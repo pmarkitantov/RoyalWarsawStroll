@@ -23,14 +23,14 @@ class LandmarkViewModel: ObservableObject {
     @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
-    @Published var showLocationList: Bool = false
+    @Published var showLandmarkList: Bool = false
 
     init() {
         let landmarks = MockData.landmarks
         self.landmarks = landmarks
         self.mapLocation = landmarks.first!
         
-//        self.updateMapRegion(location: locations.first!)
+
     }
     
     private func updateMapRegion(location: Landmark) {
@@ -38,6 +38,19 @@ class LandmarkViewModel: ObservableObject {
             mapRegion = MKCoordinateRegion(
                 center: location.coordinates,
                 span: mapSpan)
+        }
+    }
+    
+    func toggleLandmarkList() {
+        withAnimation(.easeInOut) {
+            showLandmarkList = !showLandmarkList
+        }
+    }
+    
+    func showNextLocation(location: Landmark) {
+        withAnimation(.easeInOut) {
+            mapLocation = location
+            showLandmarkList = false
         }
     }
 }

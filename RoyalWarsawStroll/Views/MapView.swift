@@ -14,7 +14,7 @@ struct MapView: View {
     var body: some View {
         ZStack {
             Map(position: .constant(.region($vm.mapRegion.wrappedValue)))
-            
+
             VStack(spacing: 0) {
                 header
                     .padding()
@@ -28,22 +28,26 @@ struct MapView: View {
 extension MapView {
     private var header: some View {
         VStack {
-            Text(vm.mapLocation.name)
-                .font(.title2)
-                .fontWeight(.bold)
-                .frame(height: 55)
-                .frame(maxWidth: .infinity)
-                .animation(.none, value: vm.mapLocation)
-                .overlay(alignment: .leading) {
-                    Image(systemName: "arrow.down")
-                        .font(.headline)
-                        .padding()
-                        .rotationEffect(.degrees(vm.showLocationList ? 180 : 0))
-                }
+            Button {
+                vm.toggleLandmarkList()
+            } label: {
+                Text(vm.mapLocation.name)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .animation(.none, value: vm.mapLocation)
+                    .overlay(alignment: .leading) {
+                        Image(systemName: "arrow.down")
+                            .font(.headline)
+                            .padding()
+                            .rotationEffect(.degrees(vm.showLandmarkList ? 180 : 0))
+                    }
+            }
+            .foregroundStyle(.primary)
 
-                .foregroundStyle(.primary)
-
-            if vm.showLocationList {
+            if vm.showLandmarkList {
+                LandmarkList()
             }
         }
         .background(.thickMaterial)

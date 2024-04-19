@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct LandmarkList: View {
-    
     @State private var showFavoritesOnly = false
+    @EnvironmentObject private var vm: LandmarkViewModel
 
     var filteredLandmarks: [Landmark] {
         MockData.landmarks.filter { landmark in
@@ -18,27 +18,22 @@ struct LandmarkList: View {
     }
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                Toggle(isOn: $showFavoritesOnly, label: {
-                    Text("Favorites only")
-                })
-                ForEach(filteredLandmarks) { landmark in
-                    NavigationLink {
-//                        LandmarkDetail(landmark: landmark)
-                    } label: {
-                        LandmarkRow(landmark: landmark)
-                    }
+        List {
+            ForEach(vm.landmarks) { landmark in
+                Button {
+                    vm.showNextLocation(location: landmark)
+                } label: {
+                    LandmarkRow(landmark: landmark)
                 }
+                .padding(.vertical, 4)
+                .listRowBackground(Color.clear)
             }
-            .animation(.default, value: filteredLandmarks)
-            .navigationTitle("Landmarks")
-        } detail: {
-            Text("Select a Landmark")
         }
+        .listStyle(.plain)
     }
 }
 
 #Preview {
     LandmarkList()
+        .environmentObject(LandmarkViewModel())
 }

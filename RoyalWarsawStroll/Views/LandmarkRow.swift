@@ -18,6 +18,7 @@ struct LandmarkRow: View {
                 .clipShape(RoundedRectangle(cornerRadius: 10))
             
             Text(landmark.name)
+                .font(.headline)
 
             Spacer()
             
