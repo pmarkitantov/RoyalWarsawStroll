@@ -17,7 +17,7 @@ enum MockData {
             constructionDate: "1596",
             keyFeatures: "Baroque architecture, Sigismund's Column",
             isFavorite: false,
-            coordinates: CLLocationCoordinate2D(latitude: 52.2476, longitude: 21.0143),
+            coordinates: Coordinate(latitude: 52.2476, longitude: 21.0143),
             images: ["mockImage"]
         ),
         Landmark(
@@ -27,7 +27,7 @@ enum MockData {
             constructionDate: "13th century",
             keyFeatures: "Mermaid of Warsaw statue, colorful buildings",
             isFavorite: true,
-            coordinates: CLLocationCoordinate2D(latitude: 52.2497, longitude: 21.0120),
+            coordinates: Coordinate(latitude: 52.2497, longitude: 21.0120),
             images: ["mockImage"]
         )
     ]

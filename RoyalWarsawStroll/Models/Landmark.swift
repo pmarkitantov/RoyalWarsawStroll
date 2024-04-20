@@ -9,6 +9,11 @@ import CoreLocation
 import Foundation
 import SwiftUI
 
+struct Coordinate: Codable {
+    var latitude: Double
+    var longitude: Double
+}
+
 struct Landmark: Identifiable, Equatable {
     static func == (lhs: Landmark, rhs: Landmark) -> Bool {
         lhs.name == rhs.name
@@ -21,7 +26,7 @@ struct Landmark: Identifiable, Equatable {
     var constructionDate: String?
     var keyFeatures: String?
     var isFavorite: Bool
-    let coordinates: CLLocationCoordinate2D
+    let coordinates: Coordinate
     let images: [String]
     
     var id: String {

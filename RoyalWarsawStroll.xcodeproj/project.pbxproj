@@ -19,6 +19,7 @@
 		AC49F2DE2BDD254F0065B09C /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2DD2BDD254F0065B09C /* FavoriteButton.swift */; };
 		AC49F2E02BDD254F0065B09C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2DF2BDD254F0065B09C /* MapView.swift */; };
 		AC69D0192BF25D38006F68C2 /* LandmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */; };
+		AC69D01D2BF25D38006F68C2 /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = AC69D01C2BF25D38006F68C2 /* mockdata.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		AC49F2DD2BDD254F0065B09C /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		AC49F2DF2BDD254F0065B09C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkViewModel.swift; sourceTree = "<group>"; };
+		AC69D01C2BF25D38006F68C2 /* mockdata.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				AC49F2D12BDD254F0065B09C /* MockData.swift */,
+				AC69D01C2BF25D38006F68C2 /* mockdata.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC69D01D2BF25D38006F68C2 /* mockdata.json in Resources */,
 				AC49F2BB2BDD254F0065B09C /* Preview Assets.xcassets in Resources */,
 				AC49F2B82BDD254F0065B09C /* Assets.xcassets in Resources */,
 			);

@@ -10,7 +10,6 @@ import MapKit
 import SwiftUI
 
 class LandmarkViewModel: ObservableObject {
-    
     @Published var landmarks: [Landmark]
     
     @Published var mapLocation: Landmark {
@@ -20,7 +19,7 @@ class LandmarkViewModel: ObservableObject {
     }
     
     // Current region on map
-    @Published var mapRegion: MKCoordinateRegion = MKCoordinateRegion()
+    @Published var mapRegion: MKCoordinateRegion = .init()
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
     
     @Published var showLandmarkList: Bool = false
@@ -29,14 +28,12 @@ class LandmarkViewModel: ObservableObject {
         let landmarks = MockData.landmarks
         self.landmarks = landmarks
         self.mapLocation = landmarks.first!
-        
-
     }
     
     private func updateMapRegion(location: Landmark) {
         withAnimation(.easeInOut) {
             mapRegion = MKCoordinateRegion(
-                center: location.coordinates,
+                center: CLLocationCoordinate2D(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude),
                 span: mapSpan)
         }
     }
@@ -54,4 +51,3 @@ class LandmarkViewModel: ObservableObject {
         }
     }
 }
-
