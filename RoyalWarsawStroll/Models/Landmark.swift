@@ -14,12 +14,11 @@ struct Coordinate: Codable {
     var longitude: Double
 }
 
-struct Landmark: Identifiable, Equatable {
+struct Landmark: Identifiable, Equatable, Decodable {
     static func == (lhs: Landmark, rhs: Landmark) -> Bool {
         lhs.name == rhs.name
     }
     
-
     var name: String
     var type: String
     var description: String

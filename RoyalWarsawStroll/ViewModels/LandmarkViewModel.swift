@@ -10,44 +10,72 @@ import MapKit
 import SwiftUI
 
 class LandmarkViewModel: ObservableObject {
-    @Published var landmarks: [Landmark]
+    @Published var landmarks: [Landmark] = []
     
     @Published var mapLocation: Landmark {
         didSet {
-            updateMapRegion(location: mapLocation)
+            self.updateMapRegion(location: self.mapLocation)
         }
     }
     
-    // Current region on map
+    let startLocation: Landmark = .init(name: "Welcome to Warsaw Royal Stroll", type: "startScreen", description: "Tap the arrow at the top of the screen to open the list of landmarks.", isFavorite: false, coordinates: Coordinate(latitude: 52.2476, longitude: 21.0143), images: [])
+
     @Published var mapRegion: MKCoordinateRegion = .init()
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+
+    var mapSpan: MKCoordinateSpan {
+        return MKCoordinateSpan(latitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.01, longitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.01)
+    }
     
     @Published var showLandmarkList: Bool = false
+    @Published var showLandmarkDescription: Bool = false
 
     init() {
-        let landmarks = MockData.landmarks
-        self.landmarks = landmarks
-        self.mapLocation = landmarks.first!
+        self.mapLocation = self.startLocation
+        self.mapRegion.span = self.mapSpan
+        let loadedLandmarks = self.loadLandmarksFromJSON(named: "data")
+        self.landmarks = loadedLandmarks
+        self.updateMapRegion(location: self.mapLocation)
+    }
+ 
+    private func loadLandmarksFromJSON(named fileName: String) -> [Landmark] {
+        if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            do {
+                let data = try Data(contentsOf: fileURL)
+                let decoder = JSONDecoder()
+                let loadedLandmarks = try decoder.decode([Landmark].self, from: data)
+                return loadedLandmarks
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+        }
+        return [startLocation]
     }
     
     private func updateMapRegion(location: Landmark) {
         withAnimation(.easeInOut) {
-            mapRegion = MKCoordinateRegion(
+            self.mapRegion = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: location.coordinates.latitude, longitude: location.coordinates.longitude),
-                span: mapSpan)
+                span: self.mapSpan
+            )
         }
     }
     
     func toggleLandmarkList() {
         withAnimation(.easeInOut) {
-            showLandmarkList = !showLandmarkList
+            self.showLandmarkList = !self.showLandmarkList
+        }
+    }
+
+    func toggleLandmarkDescription() {
+        withAnimation(.easeInOut) {
+            self.showLandmarkDescription = !self.showLandmarkDescription
         }
     }
     
     func showNextLocation(location: Landmark) {
         withAnimation(.easeInOut) {
-            mapLocation = location
-            showLandmarkList = false
+            self.mapLocation = location
+            self.showLandmarkList = false
         }
     }
 }

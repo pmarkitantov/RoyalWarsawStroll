@@ -12,7 +12,7 @@ struct LandmarkList: View {
     @EnvironmentObject private var vm: LandmarkViewModel
 
     var filteredLandmarks: [Landmark] {
-        MockData.landmarks.filter { landmark in
+        vm.landmarks.filter { landmark in
             !showFavoritesOnly || landmark.isFavorite
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 import MapKit
 
-enum MockData {
+class MockData {
     static let landmarks: [Landmark] = [
         Landmark(
             name: "Royal Castle",

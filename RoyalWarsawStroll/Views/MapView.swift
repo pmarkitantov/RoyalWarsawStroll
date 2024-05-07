@@ -17,9 +17,11 @@ struct MapView: View {
 
             VStack(spacing: 0) {
                 header
-                    .padding()
+                    .padding(.horizontal)
 
                 Spacer()
+                descriptionPanel
+                    .padding()
             }
         }
     }
@@ -31,23 +33,51 @@ extension MapView {
             Button {
                 vm.toggleLandmarkList()
             } label: {
-                Text(vm.mapLocation.name)
+                HStack(spacing: 0) {
+                    Image(systemName: "arrow.down")
+                        .font(.headline)
+                        .padding()
+                        .rotationEffect(.degrees(vm.showLandmarkList ? 180 : 0))
+                        .frame(width: 15)
+                        .padding(.horizontal)
+                    Text(vm.mapLocation.name)
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity)
+                        .animation(.none, value: vm.mapLocation)
+                        .padding(.trailing)
+                }
+                .frame(height: 55)
+            }
+            .foregroundStyle(.primary)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+
+            if vm.showLandmarkList {
+                LandmarkList()
+            }
+        }
+        .background(.thickMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 15)
+    }
+
+    private var descriptionPanel: some View {
+        VStack {
+            Button { vm.toggleLandmarkDescription() } label: {
+                Text("Показать описание")
                     .font(.title2)
                     .fontWeight(.bold)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
-                    .animation(.none, value: vm.mapLocation)
-                    .overlay(alignment: .leading) {
-                        Image(systemName: "arrow.down")
-                            .font(.headline)
-                            .padding()
-                            .rotationEffect(.degrees(vm.showLandmarkList ? 180 : 0))
-                    }
             }
             .foregroundStyle(.primary)
 
-            if vm.showLandmarkList {
-                LandmarkList()
+            if vm.showLandmarkDescription {
+                ScrollView {
+                    LandmarkDetail(landmark: vm.mapLocation)
+                }
+                Spacer()
             }
         }
         .background(.thickMaterial)

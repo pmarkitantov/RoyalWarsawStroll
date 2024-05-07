@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    
+    var landmark: Landmark
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(landmark.description)
+            .font(.system(size: 18))
+            .padding()
     }
 }
 
 #Preview {
-    LandmarkDetail()
+    LandmarkDetail(landmark: MockData.landmarks[0])
 }
