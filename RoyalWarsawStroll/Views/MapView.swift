@@ -65,17 +65,26 @@ extension MapView {
     private var descriptionPanel: some View {
         VStack {
             Button { vm.toggleLandmarkDescription() } label: {
-                Text("Показать описание")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .frame(height: 55)
-                    .frame(maxWidth: .infinity)
+                HStack {
+                    Text(!vm.showLandmarkDescription ? "Показать описание" : "Cкрыть описание")
+                        .font(.title2)
+                        .fontWeight(.bold)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
+                        .overlay(alignment: .leading) {
+                            Image(systemName: "arrow.down")
+                                .font(.headline)
+                                .padding()
+                                .rotationEffect(.degrees(vm.showLandmarkDescription ? 0 : 180))
+                        }
+                }
             }
             .foregroundStyle(.primary)
 
             if vm.showLandmarkDescription {
                 ScrollView {
                     LandmarkDetail(landmark: vm.mapLocation)
+                        
                 }
                 Spacer()
             }

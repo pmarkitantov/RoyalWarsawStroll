@@ -23,7 +23,7 @@ class LandmarkViewModel: ObservableObject {
     @Published var mapRegion: MKCoordinateRegion = .init()
 
     var mapSpan: MKCoordinateSpan {
-        return MKCoordinateSpan(latitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.01, longitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.01)
+        return MKCoordinateSpan(latitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.003, longitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.003)
     }
     
     @Published var showLandmarkList: Bool = false
