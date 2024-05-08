@@ -12,11 +12,14 @@ struct LandmarkDetail: View {
 
     var body: some View {
         VStack {
-            Image(landmark.images.first!)
-                .resizable()
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .scaledToFit()
-                .padding()
+            if let imageName = landmark.images.first {
+                Image(imageName)
+                    .resizable()
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .scaledToFit()
+                    .padding()
+            }
+
             Text(landmark.description)
                 .font(.system(size: 18))
                 .padding()
