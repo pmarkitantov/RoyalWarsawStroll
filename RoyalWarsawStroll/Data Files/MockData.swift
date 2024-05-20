@@ -11,7 +11,7 @@ import MapKit
 class MockData {
     static let landmarks: [Landmark] = [
         Landmark(
-            name: "Royal Castle",
+            name: "Дворец Бжезинских",
             type: "Castle",
             description: "The Royal Castle in Warsaw is a royal residence that formerly served throughout the centuries as the official residence of the Polish monarchs. It is located in the Castle Square, at the entrance to the Warsaw Old Town.",
             constructionDate: "1596",

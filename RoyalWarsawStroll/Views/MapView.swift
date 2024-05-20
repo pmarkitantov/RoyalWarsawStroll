@@ -20,8 +20,16 @@ struct MapView: View {
                     .padding(.horizontal)
 
                 Spacer()
-                descriptionPanel
-                    .padding()
+                ZStack {
+                    ForEach(vm.landmarks) { landmark in
+                        if vm.mapLocation == landmark {
+                            LandmarkPreviewView(landmark: landmark)
+                                .shadow(radius: 20)
+                                .padding()
+                                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                        }
+                    }
+                }
             }
         }
     }
@@ -64,7 +72,6 @@ extension MapView {
 
     private var descriptionPanel: some View {
         VStack {
-            Button { vm.toggleLandmarkDescription() } label: {
                 HStack {
                     Text(!vm.showLandmarkDescription ? "Показать описание" : "Cкрыть описание")
                         .font(.title2)
@@ -78,13 +85,11 @@ extension MapView {
                                 .rotationEffect(.degrees(vm.showLandmarkDescription ? 0 : 180))
                         }
                 }
-            }
-            .foregroundStyle(.primary)
+            
 
             if vm.showLandmarkDescription {
                 ScrollView {
                     LandmarkDetail(landmark: vm.mapLocation)
-                        
                 }
                 Spacer()
             }

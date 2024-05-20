@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct LandmarkPreviewView: View {
-    
     @EnvironmentObject private var vm: LandmarkViewModel
     let landmark: Landmark
-    
 
     var body: some View {
         HStack(alignment: .bottom) {
@@ -53,8 +51,9 @@ extension LandmarkPreviewView {
     private var titleSection: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             Text(landmark.name)
-                .font(.title)
+                .font(.title2)
                 .fontWeight(.bold)
+                .multilineTextAlignment(.leading)
             if let date = landmark.constructionDate {
                 Text(date)
                     .font(.subheadline)
@@ -73,7 +72,9 @@ extension LandmarkPreviewView {
     }
 
     private var nextButton: some View {
-        Button {} label: {
+        Button {
+            vm.nextButtonPressed()
+        } label: {
             Text("Next")
                 .font(.headline)
                 .frame(width: 125, height: 30)

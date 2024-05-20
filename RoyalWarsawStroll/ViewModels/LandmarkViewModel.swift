@@ -48,7 +48,7 @@ class LandmarkViewModel: ObservableObject {
                 print("Error decoding JSON: \(error)")
             }
         }
-        return [startLocation]
+        return [self.startLocation]
     }
     
     private func updateMapRegion(location: Landmark) {
@@ -77,5 +77,21 @@ class LandmarkViewModel: ObservableObject {
             self.mapLocation = location
             self.showLandmarkList = false
         }
+    }
+    
+    func nextButtonPressed() {
+        guard let currentIndex = landmarks.firstIndex(where: { $0 == mapLocation }) else {
+            return
+        }
+        
+        let nextIndex = currentIndex + 1
+        guard self.landmarks.indices.contains(nextIndex) else {
+            guard let firstLocation = landmarks.first else { return }
+            self.showNextLocation(location: firstLocation)
+            return
+        }
+        
+        let nextLocation = self.landmarks[nextIndex]
+        self.showNextLocation(location: nextLocation)
     }
 }
