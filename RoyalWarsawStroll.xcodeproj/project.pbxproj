@@ -19,6 +19,7 @@
 		AC49F2E02BDD254F0065B09C /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC49F2DF2BDD254F0065B09C /* MapView.swift */; };
 		AC69D0192BF25D38006F68C2 /* LandmarkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */; };
 		AC69D01D2BF25D38006F68C2 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AC69D01C2BF25D38006F68C2 /* data.json */; };
+		AC6FC9582BFF9E2900D87A96 /* LandmarkPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6FC9572BFF9E2900D87A96 /* LandmarkPreviewView.swift */; };
 		ACF52C892BF3F17900FEB552 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF52C882BF3F17900FEB552 /* MockData.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		AC49F2DF2BDD254F0065B09C /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		AC69D0182BF25D38006F68C2 /* LandmarkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkViewModel.swift; sourceTree = "<group>"; };
 		AC69D01C2BF25D38006F68C2 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		AC6FC9572BFF9E2900D87A96 /* LandmarkPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkPreviewView.swift; sourceTree = "<group>"; };
 		ACF52C882BF3F17900FEB552 /* MockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +106,7 @@
 				AC49F2CA2BDD254F0065B09C /* LandmarkList.swift */,
 				AC49F2D72BDD254F0065B09C /* LandmarkDetail.swift */,
 				AC49F2DF2BDD254F0065B09C /* MapView.swift */,
+				AC6FC9572BFF9E2900D87A96 /* LandmarkPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				AC49F2DE2BDD254F0065B09C /* FavoriteButton.swift in Sources */,
 				AC49F2B42BDD254F0065B09C /* RoyalWarsawStrollApp.swift in Sources */,
 				AC69D0192BF25D38006F68C2 /* LandmarkViewModel.swift in Sources */,
+				AC6FC9582BFF9E2900D87A96 /* LandmarkPreviewView.swift in Sources */,
 				AC49F2CB2BDD254F0065B09C /* LandmarkList.swift in Sources */,
 				AC49F2CF2BDD254F0065B09C /* LandmarkRow.swift in Sources */,
 				AC49F2E02BDD254F0065B09C /* MapView.swift in Sources */,
