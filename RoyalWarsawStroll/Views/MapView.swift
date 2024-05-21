@@ -13,8 +13,7 @@ struct MapView: View {
 
     var body: some View {
         ZStack {
-            Map(position: .constant(.region($vm.mapRegion.wrappedValue)))
-
+            mapLayer
             VStack(spacing: 0) {
                 header
                     .padding(.horizontal)
@@ -27,7 +26,7 @@ struct MapView: View {
                                 .shadow(radius: 20)
                                 .padding()
                                 .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-                        }
+                        } else {}
                     }
                 }
             }
@@ -72,20 +71,19 @@ extension MapView {
 
     private var descriptionPanel: some View {
         VStack {
-                HStack {
-                    Text(!vm.showLandmarkDescription ? "Показать описание" : "Cкрыть описание")
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .frame(height: 55)
-                        .frame(maxWidth: .infinity)
-                        .overlay(alignment: .leading) {
-                            Image(systemName: "arrow.down")
-                                .font(.headline)
-                                .padding()
-                                .rotationEffect(.degrees(vm.showLandmarkDescription ? 0 : 180))
-                        }
-                }
-            
+            HStack {
+                Text(!vm.showLandmarkDescription ? "Показать описание" : "Cкрыть описание")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
+                    .overlay(alignment: .leading) {
+                        Image(systemName: "arrow.down")
+                            .font(.headline)
+                            .padding()
+                            .rotationEffect(.degrees(vm.showLandmarkDescription ? 0 : 180))
+                    }
+            }
 
             if vm.showLandmarkDescription {
                 ScrollView {
@@ -97,6 +95,22 @@ extension MapView {
         .background(.thickMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 15)
+    }
+
+    private var mapLayer: some View {
+        Map(position: .constant(.region($vm.mapRegion.wrappedValue))) {
+            ForEach(vm.landmarks) { landmark in
+                Annotation(landmark.name, coordinate: CLLocationCoordinate2DMake(landmark.coordinates.latitude, landmark.coordinates.longitude)) {
+                    LandmarkPinView()
+
+                        .scaleEffect(vm.mapLocation == landmark ? 1 : 0.7)
+                        .shadow(radius: 10)
+                        .onTapGesture {
+                            vm.showNextLocation(location: landmark)
+                        }
+                }
+            }
+        }
     }
 }
 
