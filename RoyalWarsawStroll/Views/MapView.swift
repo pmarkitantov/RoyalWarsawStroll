@@ -16,23 +16,18 @@ struct MapView: View {
             mapLayer
             VStack(spacing: 0) {
                 header
-                    .padding(.horizontal)
-
+                    .padding()
                 Spacer()
-                ZStack {
-                    ForEach(vm.landmarks) { landmark in
-                        if vm.mapLocation == landmark {
-                            LandmarkPreviewView(landmark: landmark)
-                                .shadow(radius: 20)
-                                .padding()
-                                .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-                        } else {}
-                    }
+                landmarkPreviewStack
                 }
             }
+        .sheet(item: $vm.sheetLandmark, onDismiss: nil) { landmark in
+            LandmarkDetail(landmark: landmark)
         }
+        }
+        
     }
-}
+
 
 extension MapView {
     private var header: some View {
@@ -48,17 +43,19 @@ extension MapView {
                         .frame(width: 15)
                         .padding(.horizontal)
                     Text(vm.mapLocation.name)
-                        .font(.title2)
+                        .font(.headline)
                         .fontWeight(.bold)
-                        .scaledToFill()
+                        .scaledToFit()
                         .frame(maxWidth: .infinity)
                         .animation(.none, value: vm.mapLocation)
                         .padding(.trailing)
                 }
                 .frame(height: 55)
+                
             }
             .foregroundStyle(.primary)
             .clipShape(RoundedRectangle(cornerRadius: 15))
+
 
             if vm.showLandmarkList {
                 LandmarkList()
@@ -67,6 +64,7 @@ extension MapView {
         .background(.thickMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 15)
+
     }
 
     private var descriptionPanel: some View {
@@ -95,6 +93,19 @@ extension MapView {
         .background(.thickMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .shadow(color: Color.black.opacity(0.3), radius: 20, x: 0, y: 15)
+    }
+    
+    private var landmarkPreviewStack: some View {
+        ZStack {
+            ForEach(vm.landmarks) { landmark in
+                if vm.mapLocation == landmark {
+                    LandmarkPreviewView(landmark: landmark)
+                        .shadow(radius: 20)
+                        .padding()
+                        .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+                } else {}
+            }
+        }
     }
 
     private var mapLayer: some View {

@@ -18,16 +18,17 @@ class LandmarkViewModel: ObservableObject {
         }
     }
     
-    let startLocation: Landmark = .init(name: "Welcome to Warsaw Royal Stroll", type: "startScreen", description: "Tap the arrow at the top of the screen to open the list of landmarks.", isFavorite: false, coordinates: Coordinate(latitude: 52.2476, longitude: 21.0143), images: [])
+    let startLocation: Landmark = .init(name: "Нажмите чтобы выбрать дворец", type: "startScreen", description: "Tap the arrow at the top of the screen to open the list of landmarks.", isFavorite: false, coordinates: Coordinate(latitude: 52.2476, longitude: 21.0143), images: [])
 
     @Published var mapRegion: MKCoordinateRegion = .init()
 
     var mapSpan: MKCoordinateSpan {
-        return MKCoordinateSpan(latitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.003, longitudeDelta: self.mapLocation.type == "startScreen" ? 0.1 : 0.003)
+        return MKCoordinateSpan(latitudeDelta: self.mapLocation.type == "startScreen" ? 0.01 : 0.005, longitudeDelta: self.mapLocation.type == "startScreen" ? 0.01 : 0.005)
     }
     
     @Published var showLandmarkList: Bool = false
     @Published var showLandmarkDescription: Bool = false
+    @Published var sheetLandmark: Landmark? = nil
 
     init() {
         self.mapLocation = self.startLocation

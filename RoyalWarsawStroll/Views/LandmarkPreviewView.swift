@@ -63,7 +63,9 @@ extension LandmarkPreviewView {
     }
 
     private var learnMoreButton: some View {
-        Button {} label: {
+        Button {
+            vm.sheetLandmark = landmark
+        } label: {
             Text("Learn more")
                 .font(.headline)
                 .frame(width: 125, height: 30)

@@ -18,7 +18,7 @@ class MockData {
             keyFeatures: "Baroque architecture, Sigismund's Column",
             isFavorite: false,
             coordinates: Coordinate(latitude: 52.2476, longitude: 21.0143),
-            images: ["mockImage"]
+            images: ["mockImage", "mockImage"]
         ),
         Landmark(
             name: "Old Town Market Place",
@@ -28,7 +28,7 @@ class MockData {
             keyFeatures: "Mermaid of Warsaw statue, colorful buildings",
             isFavorite: true,
             coordinates: Coordinate(latitude: 52.2497, longitude: 21.0120),
-            images: ["mockImage"]
+            images: ["mockImage","mockImage"]
         )
     ]
 }
