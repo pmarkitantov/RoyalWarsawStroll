@@ -39,9 +39,10 @@ extension LandmarkDetail {
             ForEach(landmark.images, id: \.self) { imageName in
                 Image(imageName)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width)
-                    .clipped()
+                    .scaledToFit()
+                    .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .padding()
             }
         }
         .frame(height: 350)
@@ -73,16 +74,16 @@ extension LandmarkDetail {
         Button {
             vm.sheetLandmark = nil
         }
-            label: {
-                Image(systemName: "xmark")
-                    .font(.headline)
-                    .padding(16)
-                    .foregroundStyle(.primary)
-                    .background(.thickMaterial)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .shadow(radius: 4)
-                    .padding()
-            }
+        label: {
+            Image(systemName: "xmark")
+                .font(.headline)
+                .padding(16)
+                .foregroundStyle(.primary)
+                .background(.thickMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(radius: 4)
+                .padding()
+        }
     }
 }
 

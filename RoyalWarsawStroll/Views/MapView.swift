@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MapView: View {
     @EnvironmentObject private var vm: LandmarkViewModel
+    let maxWidthForIpad: CGFloat = 700
 
     var body: some View {
         ZStack {
@@ -17,6 +18,7 @@ struct MapView: View {
             VStack(spacing: 0) {
                 header
                     .padding()
+                    .frame(maxWidth: maxWidthForIpad)
                 Spacer()
                 landmarkPreviewStack
                 }
@@ -102,6 +104,8 @@ extension MapView {
                     LandmarkPreviewView(landmark: landmark)
                         .shadow(radius: 20)
                         .padding()
+                        .frame(maxWidth: maxWidthForIpad)
+                        .frame(maxWidth: .infinity)
                         .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
                 } else {}
             }
