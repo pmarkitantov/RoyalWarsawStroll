@@ -39,10 +39,11 @@ extension LandmarkDetail {
             ForEach(landmark.images, id: \.self) { imageName in
                 Image(imageName)
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .padding()
+                    .scaledToFill()
+                    .frame(width: UIDevice.current.userInterfaceIdiom == .pad ? nil : UIScreen.main.bounds.width - 32, height: 300)
+                    .clipped()
+                    .cornerRadius(15)
+                    .padding(.horizontal, 16)
             }
         }
         .frame(height: 350)
